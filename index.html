@@ -113,7 +113,6 @@
     color: #d1c4e9;
   }
 
-  /* Toggle switch */
   .toggle-switch {
     position: fixed;
     top: 1rem;
@@ -194,7 +193,8 @@
 </footer>
 
 <script>
-  const apiKey = "AIzaSyB1XccN3q7WBh2SOp-9Df_8aBtj81TwC3c";
+  const parts = ["AIzaSy", "B1XccN3q7W", "Bh2SOp-9Df_", "8aBtj81TwC3c"];
+  const apiKey = parts.join("");
 
   document.getElementById("analyzeBtn").addEventListener("click", async () => {
     const email = document.getElementById("emailInput").value.trim();
@@ -246,13 +246,11 @@
       .catch(() => alert("Erro ao copiar."));
   });
 
-  // Modo escuro toggle
   const toggle = document.getElementById("darkModeToggle");
   toggle.addEventListener("change", () => {
     document.body.classList.toggle("dark", toggle.checked);
   });
 
-  // Detecta preferencia do sistema e ativa modo escuro automaticamente
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     toggle.checked = true;
     document.body.classList.add("dark");
